@@ -23,7 +23,7 @@ export default function Committee() {
   useEffect(() => {
     const isAuthenticated = localStorage.getItem("authenticated");
     if (isAuthenticated !== "true") {
-      router.push("/login");
+      router.push("/");
     }
 
     // Fetch committee members
@@ -47,7 +47,7 @@ export default function Committee() {
 
   const handleLogout = () => {
     localStorage.removeItem("authenticated");
-    router.push("/login");
+    router.push("/");
   };
 
   if (isLoading) {
