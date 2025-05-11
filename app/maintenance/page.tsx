@@ -11,7 +11,7 @@ export default function Maintenance() {
     unitNumber: "",
     contactNumber: "",
     email: "",
-    serviceType: "",
+    serviceType: "none",
     urgencyLevel: "normal",
     preferredDate: "",
     description: "",
@@ -57,19 +57,8 @@ export default function Maintenance() {
       if (!response.ok) {
         throw new Error(data.error || 'Failed to submit maintenance request');
       }
-
-      setSuccess(true);
-      setFormData({
-        fullName: "",
-        unitNumber: "",
-        contactNumber: "",
-        email: "",
-        serviceType: "",
-        urgencyLevel: "normal",
-        preferredDate: "",
-        description: "",
-        permissionToEnter: false
-      });
+      router.push("/thankyou");
+      
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -185,7 +174,6 @@ export default function Maintenance() {
                 <input
                   type="text"
                   name="fullName"
-                  required
                   value={formData.fullName}
                   onChange={handleInputChange}
                   style={{
@@ -206,7 +194,6 @@ export default function Maintenance() {
                 <input
                   type="text"
                   name="unitNumber"
-                  required
                   value={formData.unitNumber}
                   onChange={handleInputChange}
                   style={{
@@ -227,7 +214,6 @@ export default function Maintenance() {
                 <input
                   type="tel"
                   name="contactNumber"
-                  required
                   value={formData.contactNumber}
                   onChange={handleInputChange}
                   style={{
@@ -248,7 +234,6 @@ export default function Maintenance() {
                 <input
                   type="email"
                   name="email"
-                  required
                   value={formData.email}
                   onChange={handleInputChange}
                   style={{
@@ -268,7 +253,6 @@ export default function Maintenance() {
                 </label>
                 <select
                   name="serviceType"
-                  required
                   value={formData.serviceType}
                   onChange={handleInputChange}
                   style={{
@@ -280,7 +264,7 @@ export default function Maintenance() {
                     backgroundColor: "white",
                   }}
                 >
-                  <option value="">-- Select a service --</option>
+                  <option value="none">-- Select a service --</option>
                   <option value="plumbing">Plumbing</option>
                   <option value="electrical">Electrical</option>
                   <option value="hvac">HVAC</option>
@@ -339,7 +323,6 @@ export default function Maintenance() {
                 </label>
                 <textarea
                   name="description"
-                  required
                   value={formData.description}
                   onChange={handleInputChange}
                   style={{

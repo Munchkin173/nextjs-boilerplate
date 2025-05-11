@@ -14,13 +14,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Here you would typically:
-    // 1. Validate card details
-    // 2. Process payment with a payment processor
-    // 3. Store transaction record
-    // 4. Send confirmation email
     
-    // For now, we'll simulate a successful payment
+
     return NextResponse.json(
       { 
         success: true,

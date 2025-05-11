@@ -4,7 +4,7 @@ export const runtime = 'edge';
 
 export async function GET() {
   try {
-    // In a real application, this data would come from a database
+    
     const committeeMembers = [
       {
         name: "Charlotte Brown",
