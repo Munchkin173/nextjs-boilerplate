@@ -35,6 +35,10 @@ export default function LoginPage() {
           Luxury living awaits — please login to continue
         </p>
 
+        <p style={{ textAlign: "center", color: "#4a5568", fontSize: "0.95rem", marginTop: "-1rem", marginBottom: "1.5rem" }}>
+        <strong>Login:</strong> Username: <code>admin</code> &nbsp;|&nbsp; Password: <code>verapass123</code>
+        </p>
+
         {error && <p style={styles.error}>{error}</p>}
 
         <form onSubmit={handleLogin} style={styles.form}>
